@@ -13,3 +13,18 @@ cursor.execute('''
                , 
                Feedback TEXT)
                ''')
+
+cursor.execute('SELECT * FROM Feedback')
+
+cursor.execute('''
+                INSERT INTO Feedback VALUES
+                (
+                'Kyle',
+
+                000-000-0000, 
+
+                'KyleJackson@mail.com', 
+
+                'This database sucks'
+                )
+                ''')
