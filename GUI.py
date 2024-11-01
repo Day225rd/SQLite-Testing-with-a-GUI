@@ -40,17 +40,17 @@ class FeedbackApp:
         self.txtfield4 = ttk.Entry(master)
         self.txtfield4.place(x = 140, y = 100)
 
+        self.submitButton = ttk.Button(master, text = "submit", command = self.txtprint)
+        self.submitButton.config(command = self.buttontext() )
+        self.submitButton.place(x=140,y=300)
 
-
-
-
-    def printinfo(self):
-        print(self.field.get())
-
+    def txtprint(self):
+        textentry = self.txtfield1.get("1.0", "end-1c"), self.txtfield2.get(), self.txtfield3.get(), self.txtfield4.get()
+        print(textentry)
     def buttontext(self):
-        print("TEST")
-
-        self.btn1.config(text="BANG")
+        print()
+  
+        #self.btn1.config(text="BANG")
 fbapp = FeedbackApp(root)
 root.mainloop()
 
