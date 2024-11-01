@@ -6,6 +6,9 @@ from tkinter import ttk
 
 import sqlite3
 
+
+
+
 con = sqlite3.connect('1database.db')
 cur = con.cursor()
 
@@ -45,14 +48,26 @@ class FeedbackApp:
         self.txtfield4 = ttk.Entry(master)
         self.txtfield4.place(x = 140, y = 100)
 
-        self.submitButton = ttk.Button(master, text = "submit", command = self.fbsubmit)
+        self.submitButton = ttk.Button(master, text = "Submit", command = self.fbsubmit)
         self.submitButton.config(command = self.buttontext() )
         self.submitButton.place(x=140,y=300)
 
-        self.printdata = ttk.Button(master, text = "See past submissions")
-        self.printdata.config(command = self.buttontext())
-        self.printdata.place(x = 140, y = 340)
+        self.historyButton = ttk.Button(master, text = "Check past entries", command = self.fbhistorypassword)
+        self.historyButton.config(command = self.buttontext() )
+        self.historyButton.place(x=140,y=330)
 
+    def fbhistorypassword(self):
+        while True:
+            password = input("Please enter the password ->")
+            if password == "1":
+                return (self.history())
+            else:
+                print("Incorrect password")
+    
+    def history(self):
+        cur.execute('''SELECT * FROM Feedback''')
+        print(cur.fetchall())
+        
     def txtprint(self):
         textentry = self.txtfield1.get("1.0", "end-1c"), self.txtfield2.get(), self.txtfield3.get(), self.txtfield4.get()
         print(textentry)
@@ -74,6 +89,7 @@ class FeedbackApp:
         con.commit()
 
         print("Feedback submitted")
+
 
 fbapp = FeedbackApp(root)
 root.mainloop()
