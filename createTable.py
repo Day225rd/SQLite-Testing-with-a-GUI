@@ -17,5 +17,5 @@ cursor.execute('''
 #cursor.execute('''INSERT INTO Feedback VALUES
 #               ('Kyle', '000-000-0000', '@mail.com', 'L database')''' )
 
-cursor.execute("SELECT * FROM feedback")
-print(cursor.fetchall())
+#cursor.execute("SELECT * FROM feedback")
+#print(cursor.fetchall())
