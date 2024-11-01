@@ -1,9 +1,6 @@
 import sqlite3
+connection = sqlite3.connect('1database.db')
+cursor = connection.cursor()
 
-def populate_table():
-    connection = sqlite3.connect("1database.db")
-    cursor = connection.cursor()
-
-    users = [
-        ("Kyle", 000-000-0000, "KyleJackson@mail.com", "WOWOWOWOWOWOW")
-     ]
+cursor.execute('''INSERT INTO Feedback VALUES
+               ('Kyle', '000-000-0000', '@mail.com', 'L database')''' )
