@@ -4,6 +4,11 @@ from tkinter import *
 
 from tkinter import ttk
 
+import sqlite3
+
+con = sqlite3.connect('1database.db')
+cur = con.cursor()
+
 root =tk.Tk()
 root.title("Feedback")
 class FeedbackApp:
@@ -16,7 +21,7 @@ class FeedbackApp:
         self.label1 = ttk.Label(master,text = "Please complete the following fields below")
         self.label1.place(x = 80, y = 70)
 
-        self.btn1 = ttk.Button(master, text = "Submit Feedback")
+        self.btn1 = ttk.Button(master, text = "Submit Feedback", command = self.fbsubmit)
         self.btn1.config(command = self.buttontext)
         self.btn1.place(x = 150, y = 220)
 
@@ -40,20 +45,39 @@ class FeedbackApp:
         self.txtfield4 = ttk.Entry(master)
         self.txtfield4.place(x = 140, y = 100)
 
-        self.submitButton = ttk.Button(master, text = "submit", command = self.txtprint)
+        self.submitButton = ttk.Button(master, text = "submit", command = self.fbsubmit)
         self.submitButton.config(command = self.buttontext() )
         self.submitButton.place(x=140,y=300)
+
+        self.printdata = ttk.Button(master, text = "See past submissions")
+        self.printdata.config(command = self.buttontext())
+        self.printdata.place(x = 140, y = 340)
 
     def txtprint(self):
         textentry = self.txtfield1.get("1.0", "end-1c"), self.txtfield2.get(), self.txtfield3.get(), self.txtfield4.get()
         print(textentry)
+
     def buttontext(self):
         print()
-  
-        #self.btn1.config(text="BANG")
+
+    def fbsubmit(self):
+        number = self.txtfield1.get("1.0", "end-1c")
+        name = self.txtfield2.get()
+        email = self.txtfield3.get()
+        feedback = self.txtfield4.get()
+        values = [number, name, email, feedback]
+        cur.execute('''INSERT INTO Feedback
+                    (number ,name ,email ,feedback) 
+                    VALUES (?, ?, ?, ?)''', values)
+    
+
+        con.commit()
+
+        print("Feedback submitted")
+
 fbapp = FeedbackApp(root)
 root.mainloop()
-
+con.close()
 
 
 #/////////////////////////////
