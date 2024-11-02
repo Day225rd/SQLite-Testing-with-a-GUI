@@ -5,7 +5,7 @@ Very fun project, has been my favorite so far.
 
 
 Database Connection
-	con = sqlite3.connect('newDB.db'): Creates a connection to the SQLite database named newDB.db. If the database doesn't 			exist, it will be created.
+	con = sqlite3.connect('newDB.db'): Creates a connection to the SQLite database named newDB.db. If the database doesn't 	exist, it will be created.
 	cur = con.cursor(): Creates a cursor object, cur, which allows executing SQL commands and interacting with the database.
 
 Tkinter Root Window
@@ -21,7 +21,7 @@ FeedbackApp Class
 Labels and Buttons
 	ttk.Label: Creates a label widget with the given text.
 	.place(x=, y=): Places the widget at specific x and y coordinates in the window.
-	Similarly, additional labels are created for feedback, name, email, and phone number fields, along with corresponding 			entry fields using ttk.Entry (single-line input) or tk.Text (multi-line input)
+	Similarly, additional labels are created for feedback, name, email, and phone number fields, along with corresponding entry fields using ttk.Entry (single-line input) or 	tk.Text (multi-line input)
 
 Submit Button
 	ttk.Button: Creates a button widget labeled "Submit Feedback".
