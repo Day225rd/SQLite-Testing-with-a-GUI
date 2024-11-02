@@ -1,3 +1,4 @@
+SELECT RAW VIEW FOR EASIER TIME READING
 Done without the use of generative AI for DS-3850. But with the help Stackoverflow, GeeksforGeeks, SQLite syntax. 
 
 Lines like 3 are the title lines, the indented lines are the explanation.
