@@ -32,25 +32,25 @@ class FeedbackApp:
         self.btn1.place(x = 150, y = 220)
 
         #feedback label and text field
-        self.label1 = ttk.Label(master,text = "Feedback:")
+        self.label1 = ttk.Label(master,text = "feedback:")
         self.label1.place(x = 30, y = 190)
         self.txtfield1 = tk.Text(master)
         self.txtfield1.place(x = 140, y = 190, width = 130, height = 80)
 
         #name label and text field
-        self.label2 = ttk.Label(master,text = "Name:")
+        self.label2 = ttk.Label(master,text = "name:")
         self.label2.place(x = 30, y = 130)
         self.txtfield2 = ttk.Entry(master)
         self.txtfield2.place(x = 140, y = 130)
         
         #Email label and text field
-        self.label3 = ttk.Label(master,text = "Email:")
+        self.label3 = ttk.Label(master,text = "email:")
         self.label3.place(x = 30, y = 160)
         self.txtfield3 = ttk.Entry(master)
         self.txtfield3.place(x = 140, y = 160)
 
         #Phone number label and text field
-        self.label4 = ttk.Label(master,text = "Phone Number:")
+        self.label4 = ttk.Label(master,text = "phone Number:")
         self.label4.place(x = 30, y = 100)
         self.txtfield4 = ttk.Entry(master)
         self.txtfield4.place(x = 140, y = 100)
@@ -104,7 +104,6 @@ class FeedbackApp:
         con.commit()
 
         print("Feedback submitted")
-
 
 fbapp = FeedbackApp(root)
 root.mainloop()
