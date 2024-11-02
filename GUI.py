@@ -9,7 +9,7 @@ import sqlite3
 
 
 #database connecction
-con = sqlite3.connect('1database.db')
+con = sqlite3.connect('newDB.db')
 cur = con.cursor()
 
 root =tk.Tk()
@@ -76,7 +76,7 @@ class FeedbackApp:
     
     #the history of data submissions
     def history(self):
-        cur.execute('''SELECT * FROM Feedback''')
+        cur.execute('''SELECT * FROM feedback''')
         print(cur.fetchall())
         
 

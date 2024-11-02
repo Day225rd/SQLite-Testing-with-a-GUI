@@ -1,18 +1,19 @@
 import sqlite3
-connection = sqlite3.connect('1database.db')
+connection = sqlite3.connect('newDB.db')
 cursor = connection.cursor()
 
 cursor.execute('''
-               CREATE TABLE IF NOT EXISTS feedback
+               CREATE TABLE IF NOT EXISTS Feedback
                
-               (Name TEXT PRIMARY KEY
+               (name TEXT PRIMARY KEY
                , 
-               Number INT
+               number INT
                , 
-               Email TEXT
+               email TEXT
                , 
-               Feedback TEXT)
+               feedback TEXT)
                ''')
+cursor.commit()
 
 #cursor.execute('''INSERT INTO Feedback VALUES
 #               ('Kyle', '000-000-0000', '@mail.com', 'L database')''' )
